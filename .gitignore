@@ -1,0 +1,17 @@
+# Cache directories and files
+doc
+examples/figures
+joblib
+.venv
+.pytest_cache
+.mypy_cache/
+*.pyc
+__pycache__
+*.egg-info
+.coverage
+
+# IDE specific folders
+.vscode
+
+.DS_Store
+coverage.xml
