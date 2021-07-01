@@ -1,0 +1,9 @@
+numpy
+numpydoc
+pillow
+scipy
+sphinx-bootstrap-theme
+sphinx-gallery
+pyvista
+pyvistaqt
+PyQt5
