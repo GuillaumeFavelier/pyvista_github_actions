@@ -1,6 +1,6 @@
 """
-Example 1
-=========
+Example PyVistaQt
+=================
 """
 import pyvista as pv
 from pyvistaqt import BackgroundPlotter
