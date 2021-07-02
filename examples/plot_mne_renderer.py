@@ -3,7 +3,9 @@ Example MNE/Renderer
 ====================
 """
 import numpy as np
+import pyvista
 from mne.viz.backends import renderer
+pyvista.OFF_SCREEN = False
 
 win_size = (600, 600)
 win_color = 'black'
