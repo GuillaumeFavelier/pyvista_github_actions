@@ -8,7 +8,7 @@ from mne.viz.backends import renderer
 pyvista.OFF_SCREEN = False
 
 win_size = (600, 600)
-win_color = 'black'
+win_color = 'grey'
 
 tet_size = 1.0
 tet_x = np.array([0, tet_size, 0, 0])
