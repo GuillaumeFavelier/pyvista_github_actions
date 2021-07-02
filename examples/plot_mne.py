@@ -4,7 +4,7 @@ Example MNE
 """
 import mne
 import pyvista
-pyvista.OFF_SCREEN = False
+pyvista.OFF_SCREEN = True
 
 fname = mne.datasets.sample.data_path() + '/MEG/sample/sample_audvis_raw.fif'
 raw = mne.io.read_raw_fif(fname)
