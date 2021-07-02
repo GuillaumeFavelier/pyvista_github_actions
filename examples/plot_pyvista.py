@@ -2,9 +2,10 @@
 Example PyVista
 ===============
 """
-import pyvista as pv
-pv.OFF_SCREEN = True
-pv.BUILDING_GALLERY = True
-p = pv.Plotter()
-p.add_mesh(pv.Cone())
+import pyvista
+pyvista.OFF_SCREEN = True
+pyvista.BUILDING_GALLERY = True
+
+p = pyvista.Plotter()
+p.add_mesh(pyvista.Cone())
 p.show()
