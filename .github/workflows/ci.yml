@@ -23,7 +23,7 @@ jobs:
         name: 'Setup xvfb'
       - run: |
           pip install -r requirements.txt
-          # pip install --progress-bar off https://github.com/GuillaumeFavelier/mne-python/zipball/proto/sphinx_gha
+          pip install --progress-bar off https://github.com/mne-tools/mne-python/zipball/main
         name: 'Install dependencies'
       - run: |
           LD_DEBUG=libs python -c "from PyQt5.QtWidgets import QApplication, QWidget; app = QApplication([])"
