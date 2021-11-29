@@ -8,4 +8,6 @@ pyvista
 pyvistaqt
 PyQt5
 scooby
+pooch
+tqdm
 mne
