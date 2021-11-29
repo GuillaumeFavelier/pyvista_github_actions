@@ -9,4 +9,5 @@ pyvista.BUILDING_GALLERY = True
 
 p = BackgroundPlotter()
 p.add_mesh(pyvista.Cone())
+p.enable_anti_aliasing()
 p.show()
