@@ -8,7 +8,7 @@ pyvista.OFF_SCREEN = True
 pyvista.BUILDING_GALLERY = True
 
 p = BackgroundPlotter()
-p.add_mesh(pyvista.Cone())
+p.add_mesh(pyvista.Cone(), smooth_shading=True)
 p.enable_anti_aliasing()
 p.enable_depth_peeling()
 p.show()
