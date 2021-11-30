@@ -4,9 +4,6 @@ Example MNE/Renderer
 """
 import numpy as np
 from mne.viz.backends import renderer
-import pyvista
-pyvista.OFF_SCREEN = True
-pyvista.BUILDING_GALLERY = True
 
 # init scene
 rend = renderer.create_3d_figure(

@@ -11,6 +11,9 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import pyvista
+pyvista.OFF_SCREEN = True
+pyvista.BUILDING_GALLERY = True
 
 
 # -- Project information -----------------------------------------------------

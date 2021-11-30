@@ -8,9 +8,6 @@ import numpy as np
 import nibabel as nib
 
 import mne
-import pyvista
-pyvista.OFF_SCREEN = True
-pyvista.BUILDING_GALLERY = True
 
 data_path = mne.datasets.sample.data_path()
 subjects_dir = op.join(data_path, 'subjects')
