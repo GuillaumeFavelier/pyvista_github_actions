@@ -1,3 +1,7 @@
+"""
+Example MNE/STC
+===========
+"""
 import os
 import mne
 from mne.datasets import sample
