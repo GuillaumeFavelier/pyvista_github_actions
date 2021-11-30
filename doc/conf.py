@@ -79,8 +79,15 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-scrapers = ('matplotlib', 'pyvista')
-scrapers += mne.viz._brain._BrainScraper
+scrapers = ('matplotlib',)
+scrapers += mne.viz._brain._BrainScraper()
+scrapers += (
+    mne.gui._LocateScraper(),
+    mne.viz._brain._BrainScraper(),
+    'pyvista',
+)
+report_scraper = mne.report._ReportScraper()
+scrapers += (report_scraper,)
 
 
 examples_dirs = ['../examples']
