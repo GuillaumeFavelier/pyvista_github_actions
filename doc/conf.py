@@ -12,6 +12,7 @@
 #
 import os
 import pyvista
+import mne
 pyvista.OFF_SCREEN = True
 pyvista.BUILDING_GALLERY = True
 
@@ -78,6 +79,9 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+scrapers = ('pyvista')
+scrapers += mne.viz._brain._BrainScraper
+
 
 examples_dirs = ['../examples']
 gallery_dirs = ['auto_examples']
@@ -87,6 +91,6 @@ sphinx_gallery_conf = {
     'plot_gallery': 'True',
     'backreferences_dir': os.path.join('generated'),
     'abort_on_example_error': False,
-    'image_scrapers': ('pyvista'),
+    'image_scrapers': scrapers,
     'show_memory': True,
 }

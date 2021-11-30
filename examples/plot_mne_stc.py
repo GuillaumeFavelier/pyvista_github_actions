@@ -12,6 +12,6 @@ subjects_dir = os.path.join(data_path, 'subjects')
 fname_stc = os.path.join(sample_dir, 'sample_audvis-meg')
 stc = mne.read_source_estimate(fname_stc, subject='sample')
 initial_time = 0.13
-# brain = stc.plot(subjects_dir=subjects_dir, initial_time=initial_time,
-#                  clim=dict(kind='value', lims=[3, 6, 9]),
-#                  size=600, background="white", hemi='lh')
+brain = stc.plot(subjects_dir=subjects_dir, initial_time=initial_time,
+                 clim=dict(kind='value', lims=[3, 6, 9]),
+                 size=600, background="white", hemi='lh')
