@@ -80,7 +80,6 @@ html_theme_options = {
 html_static_path = ['_static']
 
 scrapers = ('matplotlib',)
-scrapers += mne.viz._brain._BrainScraper()
 scrapers += (
     mne.gui._LocateScraper(),
     mne.viz._brain._BrainScraper(),
