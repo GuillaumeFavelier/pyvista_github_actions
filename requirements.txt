@@ -11,3 +11,4 @@ scooby
 pooch
 tqdm
 mne
+nibabel
