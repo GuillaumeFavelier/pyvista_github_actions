@@ -5,7 +5,8 @@ Example MNE/Renderer
 import numpy as np
 import pyvista
 from mne.viz.backends import renderer
-pyvista.OFF_SCREEN = False
+pyvista.OFF_SCREEN = True
+pyvista.BUILDING_GALLERY = True
 
 win_size = (600, 600)
 win_color = 'grey'
