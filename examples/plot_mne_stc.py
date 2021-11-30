@@ -5,6 +5,8 @@ Example MNE/STC
 import os
 import mne
 from mne.datasets import sample
+import pyvista
+pyvista.OFF_SCREEN = False
 data_path = sample.data_path()
 sample_dir = os.path.join(data_path, 'MEG', 'sample')
 subjects_dir = os.path.join(data_path, 'subjects')
