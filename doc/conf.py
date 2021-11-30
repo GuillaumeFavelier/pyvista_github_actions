@@ -10,9 +10,13 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import gc
 import os
+import time
 import pyvista
 import mne
+from mne.utils import _assert_no_instances
+from mne.viz import Brain
 pyvista.OFF_SCREEN = True
 pyvista.BUILDING_GALLERY = True
 
@@ -52,6 +56,47 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+
+
+class Resetter(object):
+    """Simple class to make the str(obj) static for Sphinx build env hash."""
+
+    def __init__(self):
+        self.t0 = time.time()
+
+    def __repr__(self):
+        return f'<{self.__class__.__name__}>'
+
+    def __call__(self, gallery_conf, fname):
+        import matplotlib.pyplot as plt
+        try:
+            from pyvista import Plotter  # noqa
+        except ImportError:
+            Plotter = None  # noqa
+        try:
+            from pyvistaqt import BackgroundPlotter  # noqa
+        except ImportError:
+            BackgroundPlotter = None  # noqa
+        try:
+            from vtk import vtkPolyData  # noqa
+        except ImportError:
+            vtkPolyData = None  # noqa
+        from mne.viz.backends.renderer import backend
+        _Renderer = backend._Renderer if backend is not None else None
+        # in case users have interactive mode turned on in matplotlibrc,
+        # turn it off here (otherwise the build can be very slow)
+        plt.ioff()
+        plt.rcParams['animation.embed_limit'] = 30.
+        gc.collect()
+        when = 'mne/conf.py:Resetter.__call__'
+        _assert_no_instances(Brain, when)  # calls gc.collect()
+        if Plotter is not None:
+            _assert_no_instances(Plotter, when)
+        if BackgroundPlotter is not None:
+            _assert_no_instances(BackgroundPlotter, when)
+        if vtkPolyData is not None:
+            _assert_no_instances(vtkPolyData, when)
+        _assert_no_instances(_Renderer, when)
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -99,4 +144,5 @@ sphinx_gallery_conf = {
     'abort_on_example_error': False,
     'image_scrapers': scrapers,
     'show_memory': True,
+    'reset_modules': ('matplotlib', Resetter()),
 }
