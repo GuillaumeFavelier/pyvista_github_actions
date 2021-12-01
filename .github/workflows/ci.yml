@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DISPLAY: ':99'
+      MNE_3D_OPTION_ANTIALIAS: false
     defaults:
       run:
         shell: bash
@@ -23,7 +24,6 @@ jobs:
         name: 'Setup xvfb'
       - run: |
           pip install -r requirements.txt
-          pip install --progress-bar off https://github.com/GuillaumeFavelier/mne-python/zipball/proto/sphinx_gha
         name: 'Install dependencies'
       - run: |
           LD_DEBUG=libs python -c "from PyQt5.QtWidgets import QApplication, QWidget; app = QApplication([])"
